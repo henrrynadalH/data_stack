@@ -2,7 +2,7 @@
 FROM postgres:latest
 
 # Environment variables to configure the database
-ENV POSTGRES_DB=dvdrental
+ENV POSTGRES_DB=dvdrental_
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=mypassword
 

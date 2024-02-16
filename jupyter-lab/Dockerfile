@@ -32,12 +32,12 @@ RUN pip install --upgrade jupyterlab jupyterlab-git && \
 EXPOSE 8888
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /app/my_data
 
 # Copy your project files into the container
 COPY . /app
 
-VOLUME ["/app/files"]
+VOLUME ["/app/my_data"]
 
 # Copy JupyterLab config file
 # COPY jupyter_lab_config.py /opt/venv/share/jupyter/lab/
