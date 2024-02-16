@@ -22,9 +22,9 @@ RUN sh -c "ZSH=$HOME/.oh-my-zsh && \
 RUN python -m venv $VIRTUAL_ENV
 
 # Install JupyterLab and other dependencies
-RUN jupyter labextension install @jupyterlab/git && \
-    pip install --upgrade jupyterlab jupyterlab-git && \
-    jupyter serverextension enable --py jupyterlab_git && \
+RUN pip install --upgrade jupyterlab jupyterlab-git && \
+    jupyter labextension install @jupyterlab/git && \
+    jupyter labextension enable --py jupyterlab_git && \
     jupyter lab clean && jupyter lab build
 
 
@@ -36,6 +36,8 @@ WORKDIR /app
 
 # Copy your project files into the container
 COPY . /app
+
+VOLUME ["/app/files"]
 
 # Copy JupyterLab config file
 # COPY jupyter_lab_config.py /opt/venv/share/jupyter/lab/
