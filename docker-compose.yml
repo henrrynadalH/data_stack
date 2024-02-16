@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+
+  postgres:
+    build:
+      context: ./postgres_service
+      dockerfile: Dockerfile
+    networks:
+      - my_network
+    ports:
+      - "5432:5432"
+    
+  jupyter_lab:
+    build: 
+      context: ./jupyter-lab
+      dockerfile: Dockerfile
+    ports:
+       - 8888:8888
+    networks:
+      - my_network
+    depends_on:
+      - postgres
+
+  r_studio:
+    build:
+      context: ./r_service
+      dockerfile: Dockerfile
+    ports:
+      - "8787:8787"
+    networks:
+      - my_network
+    depends_on:
+      - postgres
+
+networks:
+  my_network:
+    driver: bridge
