@@ -21,6 +21,12 @@ RUN sh -c "ZSH=$HOME/.oh-my-zsh && \
 # Create and activate virtual environment
 RUN python -m venv $VIRTUAL_ENV
 
+COPY requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip && \
+    pip install -r /app/requirements.txt
+
+
+
 # Install JupyterLab and other dependencies
 RUN pip install --upgrade jupyterlab jupyterlab-git && \
     jupyter labextension install @jupyterlab/git && \
@@ -36,11 +42,6 @@ WORKDIR /app/my_data
 
 # Copy your project files into the container
 COPY . /app
-
-#VOLUME ["/app/my_data"]
-
-# Copy JupyterLab config file
-# COPY jupyter_lab_config.py /opt/venv/share/jupyter/lab/
 
 # Start Zsh to make the terminal look nice, and then start JupyterLab
 CMD ["zsh", "-c", "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root  --NotebookApp.token=''"]
