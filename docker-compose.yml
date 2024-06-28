@@ -19,7 +19,7 @@ services:
     networks:
       - my_network
     volumes:
-      - shared_volume:/app/my_data
+      - jupyter_volume:/app/my_data
       
     depends_on:
       - postgres
@@ -37,14 +37,22 @@ services:
     environment:
       - USER=rstudio
       - PASSWORD=ds_fmat
+    volumes:
+      - r_volume:/home
 
 networks:
   my_network:
     driver: bridge
 volumes:
-  shared_volume:
+  jupyter_volume:
     driver: local
     driver_opts:  
       type: none
       o: bind
       device: ./jupyter-lab/files/
+  r_volume:
+    driver: local
+    driver_opts:  
+      type: none
+      o: bind
+      device: ./r_service/files/
