@@ -18,6 +18,9 @@ services:
        - 8888:8888
     networks:
       - my_network
+    volumes:
+      - jupyter_volume:/app/my_data
+      
     depends_on:
       - postgres
 
@@ -31,7 +34,25 @@ services:
       - my_network
     depends_on:
       - postgres
+    environment:
+      - USER=rstudio
+      - PASSWORD=ds_fmat
+    volumes:
+      - r_volume:/home
 
 networks:
   my_network:
     driver: bridge
+volumes:
+  jupyter_volume:
+    driver: local
+    driver_opts:  
+      type: none
+      o: bind
+      device: ./jupyter-lab/files/
+  r_volume:
+    driver: local
+    driver_opts:  
+      type: none
+      o: bind
+      device: ./r_service/files/
