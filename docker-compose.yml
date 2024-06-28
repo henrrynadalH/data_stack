@@ -34,6 +34,9 @@ services:
       - my_network
     depends_on:
       - postgres
+    environment:
+      - USER=rstudio
+      - PASSWORD=ds_fmat
 
 networks:
   my_network:
