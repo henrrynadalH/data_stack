@@ -28,7 +28,7 @@ RUN pip install --upgrade pip && \
 
 
 # Install JupyterLab and other dependencies
-RUN pip install --upgrade jupyterlab==4.1.4 jupyterlab-git && \
+RUN pip install --upgrade jupyterlab==4.1.4 jupyterlab-git==0.50.1 && \
     jupyter labextension install @jupyterlab/git && \
     jupyter labextension enable --py jupyterlab_git && \
     jupyter lab clean && jupyter lab build
