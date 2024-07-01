@@ -8,9 +8,9 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 # Install system dependencies (including Node.js, npm, Git, and Oh My Zsh)
 RUN apt-get update && apt-get install -y \
     git=1:2.39.2-1.1 \
-    nodejs=18.19.0+dfsg-6~deb12u1 \
+    nodejs=18.19.0+dfsg-6~deb12u2 \
     npm=9.2.0~ds1-1 \
-    zsh=5.9-4+b2 \
+    zsh=5.9-4+b5 \
     curl=7.88.1-10+deb12u5
 
 # Install Oh My Zsh without user interaction

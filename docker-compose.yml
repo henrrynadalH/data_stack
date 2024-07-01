@@ -35,10 +35,10 @@ services:
     depends_on:
       - postgres
     environment:
-      - USER=rstudio
-      - PASSWORD=ds_fmat
+      - USER=ds_fmat
+      - PASSWORD=rstudio
     volumes:
-      - r_volume:/home
+      - r_volume:/home/ds_fmat
 
 networks:
   my_network:
