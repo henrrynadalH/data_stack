@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     nodejs=18.19.0+dfsg-6~deb12u2 \
     npm=9.2.0~ds1-1 \
     zsh=5.9-4+b5 \
-    curl=7.88.1-10+deb12u5
+    curl=7.88.1-10+deb12u6
 
 # Install Oh My Zsh without user interaction
 RUN sh -c "ZSH=$HOME/.oh-my-zsh && \
