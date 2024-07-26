@@ -14,7 +14,7 @@
 ### HotFixes
    - No hotfixes added
 ### Notable Info
-   - Puring repo
+   - Pruning repo
    - Separating files for jupyterlab & r services on independent modules and repositories
 
 ## Version 1.0.0
